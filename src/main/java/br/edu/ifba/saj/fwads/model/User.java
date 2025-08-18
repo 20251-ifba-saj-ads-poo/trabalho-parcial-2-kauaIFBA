@@ -1,5 +1,5 @@
 package br.edu.ifba.saj.fwads.model;
 
-public class Usuario {
-    
+public class User extends Member {
+
 }

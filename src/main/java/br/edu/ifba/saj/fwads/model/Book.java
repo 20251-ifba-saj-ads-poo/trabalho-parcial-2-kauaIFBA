@@ -1,6 +1,7 @@
 package br.edu.ifba.saj.fwads.model;
 
 public class Book extends AbstractModel<> {
+
     private String title;
     private String author;
     private String genre;
@@ -19,53 +20,30 @@ public class Book extends AbstractModel<> {
     }
 
     // Métodos getters
-    public String getTitle() {
-        return title;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public String getGenre() {
-        return genre;
-    }
-
-    public String getSynopsis() {
-        return synopsis;
-    }
-
-    public String getPublisher() {
-        return publisher;
-    }
-
-    public int getPublicationYear() {
-        return publicationYear;
-    }
+    public String getTitle() { return title; }
+    public String getAuthor() { return author; }
+    public String getGenre() { return genre; }
+    public String getSynopsis() { return synopsis; }
+    public String getPublisher() { return publisher; }
+    public int getPublicationYear() { return publicationYear; }
 
     // Métodos setters
-    public void setTitle(String title) {
-        this.title = title;
-    }
+    public void setTitle(String title) { this.title = title; }
+    public void setAuthor(String author) { this.author = author; }
+    public void setGenre(String genre) { this.genre = genre; }
+    public void setSynopsis(String synopsis) { this.synopsis = synopsis; }
+    public void setPublisher(String publisher) { this.publisher = publisher; }
+    public void setPublicationYear(int publicationYear) { this.publicationYear = publicationYear; }
 
-    public void setAuthor(String author) {
-        this.author = author;
+    @Override
+    public String toString() {
+        return "Book{" +
+                "title='" + title + '\'' +
+                ", author='" + author + '\'' +
+                ", genre='" + genre + '\'' +
+                ", synopsis='" + synopsis + '\'' +
+                ", publisher='" + publisher + '\'' +
+                ", publicationYear=" + publicationYear +
+                '}';
     }
-
-    public void setGenre(String genre) {
-        this.genre = genre;
-    }
-
-    public void setSynopsis(String synopsis) {
-        this.synopsis = synopsis;
-    }
-
-    public void setPublisher(String publisher) {
-        this.publisher = publisher;
-    }
-
-    public void setPublicationYear(int publicationYear) {
-        this.publicationYear = publicationYear;
-    }
-
 }
