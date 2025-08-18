@@ -1,16 +1,13 @@
 package br.edu.ifba.saj.fwads.controller;
 
 import br.edu.ifba.saj.fwads.Biblioteca;
-import br.edu.ifba.saj.fwads.model.Autor;
-import br.edu.ifba.saj.fwads.model.Livro;
+import br.edu.ifba.saj.fwads.model.Book;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.layout.Pane;
 import javafx.util.StringConverter;
 
 public class CadLivroController {
@@ -25,7 +22,7 @@ public class CadLivroController {
 
     @FXML
     void salvarLivro(ActionEvent event) {
-        Livro novoLivro = new Livro(txTitulo.getText(),
+        Book novoLivro = new Book(txTitulo.getText(),
                     txSubTitulo.getText(), 
                     txISBN.getText(),
                     slAutor.getSelectionModel().getSelectedItem());
