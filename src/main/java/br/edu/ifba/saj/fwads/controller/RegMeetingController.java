@@ -6,9 +6,12 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 
-public class CadAutorController {
-
+public class RegMeetingController {
     @FXML
+
+}
+// This was the previous CadAutorController >:)
+/*    @FXML
     private TextField txCPF;
 
     @FXML
@@ -20,9 +23,9 @@ public class CadAutorController {
     @FXML
     private void salvarAutor() {
         Autor novoAutor = new Autor(txNome.getText(),
-                    txEmail.getText(), 
+                    txEmail.getText(),
                     txCPF.getText());
-        new Alert(AlertType.INFORMATION, 
+        new Alert(AlertType.INFORMATION,
         "Cadastrando Autor:"+novoAutor.getNome()).showAndWait();
         Biblioteca.listaAutores.add(novoAutor);
         limparTela();
@@ -33,5 +36,4 @@ public class CadAutorController {
         txEmail.setText("");
         txCPF.setText("");
     }
-
-}
+*/

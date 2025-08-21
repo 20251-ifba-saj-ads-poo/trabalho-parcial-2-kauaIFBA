@@ -76,7 +76,7 @@ public class MasterController {
     @FXML
     void showLivros(ActionEvent event) {
         limparBotoes(event.getSource());
-        showFXMLFile("CadLivro.fxml");
+        showFXMLFile("RegBook.fxml");
     }
 
     private void showFXMLFile(String resourceName) {

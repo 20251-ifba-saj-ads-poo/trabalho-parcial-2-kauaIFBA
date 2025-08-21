@@ -3,8 +3,9 @@ package br.edu.ifba.saj.fwads.model;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
-public class Meeting extends AbstractModel<>{
+public class Meeting extends AbstractModel<UUID>{
     private LocalDateTime dateAndTime;
     private Book book;
     private List<Member> subscribedMembers;
@@ -39,5 +40,15 @@ public class Meeting extends AbstractModel<>{
     public void setHost(Member host) { this.host = host; }
     public void setMinutes(String minutes) {this.minutes = minutes; }
 
-
+    @Override
+    public String toString() {
+        return "Meeting{" +
+                "dateAndTime=" + dateAndTime +
+                ", book=" + book +
+                ", subscribedMembers=" + subscribedMembers +
+                ", attendedMembers=" + attendedMembers +
+                ", host=" + host +
+                ", minutes='" + minutes + '\'' +
+                '}';
+    }
 }
