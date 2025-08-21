@@ -11,7 +11,7 @@ public class Member extends AbstractModel<UUID>{
     private List<Meeting> attendedMeetings; // Encontros que participou
     private List<Meeting> subscribedMeetings; // Encontros que está inscrito
 
-    Member(String name, String cpf, String password) {
+    public Member(String name, String cpf, String password) {
         this.name = name;
         this.cpf = cpf;
         this.password = password;

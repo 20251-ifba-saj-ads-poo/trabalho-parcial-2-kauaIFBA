@@ -1,5 +1,6 @@
 package br.edu.ifba.saj.fwads.controller;
 
+import br.edu.ifba.saj.fwads.Dados;
 import br.edu.ifba.saj.fwads.model.Book;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -50,6 +51,7 @@ public class RegisterNewBookController {
                 txPublicationYear.getText());
         new Alert(AlertType.INFORMATION,
                 "Cadastrando Livro(Fake):"+newBook.toString()).showAndWait();
+        Dados.listaBooks.add(newBook);
         limparTela();
     }
 

@@ -1,6 +1,7 @@
 package br.edu.ifba.saj.fwads.controller;
 
 import br.edu.ifba.saj.fwads.Biblioteca;
+import br.edu.ifba.saj.fwads.Dados;
 import br.edu.ifba.saj.fwads.model.Meeting;
 import br.edu.ifba.saj.fwads.model.Member;
 import javafx.event.ActionEvent;
@@ -9,8 +10,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.input.MouseEvent;
-
-import java.awt.print.Book;
 
 public class RegisterNewMeetingController {
     @FXML
@@ -25,12 +24,12 @@ public class RegisterNewMeetingController {
 
     @FXML
     private void saveMeeting(ActionEvent event) {
-        Meeting novoAutor = new Meeting(dpDateAndTime.getValue(),
+        Meeting novoMeeting = new Meeting(dpDateAndTime.getValue(),
             //book
             //host
         new Alert(Alert.AlertType.INFORMATION,
                 "Criando novo Encontro").showAndWait();
-        Biblioteca.listaAutores.add(novoAutor);
+        Dados.listaMeetings.add(novoMeeting);
         clearScreen();
     }
 
