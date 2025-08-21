@@ -1,21 +1,17 @@
 package br.edu.ifba.saj.fwads.controller;
 
-import br.edu.ifba.saj.fwads.Biblioteca;
 import br.edu.ifba.saj.fwads.model.Book;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextFormatter;
 import javafx.scene.control.TextFormatter.Change;
-import javafx.util.StringConverter;
 import javafx.util.converter.IntegerStringConverter;
 import java.util.function.UnaryOperator;
 
-public class RegBookController {
-    // Everything the user will fill
+public class RegisterNewBookController {
     @FXML
     private TextField txTitle;
     @FXML
@@ -44,7 +40,7 @@ public class RegBookController {
     }
 
     @FXML
-    void saveNewBook(ActionEvent event) {
+    void saveBook(ActionEvent event) {
         // Book(String title, String author, String genre, String synopsis, String publisher, int publicationYear)
         Book newBook = new Book(txTitle.getText(),
                 txAuthor.getText(),

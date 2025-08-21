@@ -70,13 +70,13 @@ public class MasterController {
     @FXML
     void showAutores(ActionEvent event) {
         limparBotoes(event.getSource());
-        showFXMLFile("CadAutor.fxml");
+        showFXMLFile("RegisterMeeting.fxml");
     }
 
     @FXML
     void showLivros(ActionEvent event) {
         limparBotoes(event.getSource());
-        showFXMLFile("RegBook.fxml");
+        showFXMLFile("RegisterBook.fxml");
     }
 
     private void showFXMLFile(String resourceName) {
