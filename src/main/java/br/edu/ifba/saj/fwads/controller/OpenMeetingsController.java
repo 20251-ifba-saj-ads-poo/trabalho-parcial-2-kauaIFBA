@@ -42,7 +42,7 @@ public class OpenMeetingsController {
         Member currentUser = Dados.getCurrentUser();
 
         // todo fazer isso aqui
-        currentUser.setSubscribedMeetings(slOpenMeetings);
+        currentUser.addAttendedMeeting(slOpenMeetings.getValue());
     }
 
     private void loadMemberList() {

@@ -33,6 +33,12 @@ public class Member extends AbstractModel<UUID>{
     public void setAttendedMeetings(List<Meeting> attendedMeetings) { this.attendedMeetings = attendedMeetings; }
     public void setSubscribedMeetings(List<Meeting> subscribedMeetings) { this.subscribedMeetings = subscribedMeetings; }
 
+    public void addAttendedMeeting(Meeting meeting) {
+        if (meeting != null && !attendedMeetings.contains(meeting)) {
+            attendedMeetings.add(meeting);
+        }
+    }
+
     @Override
     public String toString() {
         return "Member{" +
