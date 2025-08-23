@@ -14,7 +14,7 @@ public class Meeting extends AbstractModel<UUID>{
     private Member host;
     private String minutes;
 
-    Meeting(LocalDate date, Book book, Member host) {
+    public Meeting(LocalDate date, Book book, Member host) {
         this.date = date;
         this.book = book;
         this.host = host;

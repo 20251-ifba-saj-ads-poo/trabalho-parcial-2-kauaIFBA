@@ -56,24 +56,9 @@ public class MenuController {
     }
 
     @FXML
-    void showUsuarios(ActionEvent event) {
+    void showMeetings(ActionEvent event) {
         limparBotoes(event.getSource());
-        masterPane.setCenter(new Pane());
-    }
-
-    private void limparBotoes(Object source) {
-        menu.getChildren().forEach((node) -> {
-            if (node instanceof Button btn) {
-                btn.getStyleClass().clear();
-                btn.getStyleClass().add("btn-menu");
-            }
-        }
-
-        );
-        if (source instanceof Button btn) {
-            btn.getStyleClass().clear();
-            btn.getStyleClass().add("btn-menu-selected");
-        }
+        showFXMLFile("OpenMeetings.fxml");
     }
 
     @FXML
@@ -95,6 +80,21 @@ public class MenuController {
         } catch (Exception e) {
             new Alert(AlertType.ERROR, "Erro ao carregar o arquivo " + resourceName).showAndWait();
             e.printStackTrace();
+        }
+    }
+
+    private void limparBotoes(Object source) {
+        menu.getChildren().forEach((node) -> {
+                    if (node instanceof Button btn) {
+                        btn.getStyleClass().clear();
+                        btn.getStyleClass().add("btn-menu");
+                    }
+                }
+
+        );
+        if (source instanceof Button btn) {
+            btn.getStyleClass().clear();
+            btn.getStyleClass().add("btn-menu-selected");
         }
     }
 }

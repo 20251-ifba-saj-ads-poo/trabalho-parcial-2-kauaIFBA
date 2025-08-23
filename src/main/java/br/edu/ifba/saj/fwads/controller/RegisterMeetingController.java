@@ -2,12 +2,17 @@ package br.edu.ifba.saj.fwads.controller;
 
 import br.edu.ifba.saj.fwads.Dados;
 import br.edu.ifba.saj.fwads.model.Book;
+import br.edu.ifba.saj.fwads.model.Meeting;
+import br.edu.ifba.saj.fwads.model.Member;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.util.StringConverter;
 
 public class RegisterMeetingController {
+
     @FXML
     private DatePicker dpDate;
 
@@ -38,23 +43,24 @@ public class RegisterMeetingController {
         loadBooksList();
     }
 
-    /*
     @FXML
-    private void createMeeting(ActionEvent event) {
-        Meeting novoMeeting = new Meeting(dpDateAndTime.getValue(),
-            //book
-            //host
+    private void saveMeeting(ActionEvent event) {
+        Member host = Dados.getCurrentUser();
+
+        Meeting novoMeeting = new Meeting(dpDate.getValue(),
+                slBook.getSelectionModel().getSelectedItem(),
+                host);
         new Alert(Alert.AlertType.INFORMATION,
                 "Criando novo Encontro").showAndWait();
         Dados.meetingsList.add(novoMeeting);
         clearScreen();
     }
 
-     */
-
     @FXML
     private void clearScreen() {
-        //todo escrever isso aqui
+        dpDate.setValue(null);
+        //Todo REVER
+        slBook.setSelectionModel(null);
     }
 
     private void loadBooksList() {
