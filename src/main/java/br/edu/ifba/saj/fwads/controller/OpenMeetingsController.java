@@ -4,17 +4,56 @@ import br.edu.ifba.saj.fwads.model.Meeting;
 import br.edu.ifba.saj.fwads.model.Member;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.ListView;
-import java.net.URL;
-import java.util.ResourceBundle;
+import javafx.scene.control.ChoiceBox;
 import br.edu.ifba.saj.fwads.Dados;
-import javafx.scene.control.SelectionMode;
+import javafx.util.StringConverter;
 
-public class OpenMeetingsController implements Initializable {
+public class OpenMeetingsController {
 
     @FXML
-    private ListView<Meeting> lvOpenMeetings; // 🔹 Agora tipado
+    private ChoiceBox<Meeting> slOpenMeetings;
+
+    @FXML
+    private void initialize() {
+        slOpenMeetings.setConverter(new StringConverter<Meeting>() {
+            @Override
+            public String toString(Meeting obj) {
+                if (obj != null) {
+                    return obj.toString();
+                }
+                return "";
+            }
+
+            @Override
+            public Meeting fromString(String stringMeeting) {
+                return Dados.meetingsList
+                        .stream()
+                        .filter(autor -> stringMeeting.equals(autor.toString()))
+                        .findAny()
+                        .orElse(null);
+            }
+        });
+
+        loadMemberList();
+    }
+
+    @FXML
+    public void subscribe(ActionEvent actionEvent) {
+        Member currentUser = Dados.getCurrentUser();
+
+        // todo fazer isso aqui
+        currentUser.setSubscribedMeetings(slOpenMeetings);
+    }
+
+    private void loadMemberList() {
+        slOpenMeetings.setItems(Dados.meetingsList);
+    }
+}
+
+/*
+ANTIGO
+    @FXML
+    private ListView<Meeting> lvOpenMeetings;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -25,10 +64,6 @@ public class OpenMeetingsController implements Initializable {
     @FXML
     public void subscribe(ActionEvent actionEvent) {
         Member currentUser = Dados.getCurrentUser();
-        for (Meeting meeting : lvOpenMeetings.getSelectionModel().getSelectedItems()) {
-            if (!currentUser.getSubscribedMeetings().contains(meeting)) {
-                currentUser.getSubscribedMeetings().add(meeting);
-            }
-        }
+        currentUser.setSubscribedMeetings(lvOpenMeetings.getSelectionModel().getSelectedItems());
     }
-}
+ */

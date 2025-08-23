@@ -31,10 +31,10 @@ public class RegisterMeetingController {
             }
 
             @Override
-            public Book fromString(String stringAutor) {
+            public Book fromString(String stringBook) {
                 return Dados.booksList
                         .stream()
-                        .filter(autor -> stringAutor.equals(autor.getTitle() + ":" + autor.getPublisher()))
+                        .filter(autor -> stringBook.equals(autor.getTitle() + ":" + autor.getPublisher()))
                         .findAny()
                         .orElse(null);
             }
