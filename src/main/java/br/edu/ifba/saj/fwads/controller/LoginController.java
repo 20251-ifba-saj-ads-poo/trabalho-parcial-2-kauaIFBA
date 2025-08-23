@@ -29,12 +29,17 @@ public class LoginController {
         String user = txCpf.getText();
         String password = txPassword.getText();
 
+        /*
         boolean autenticado = Dados.membersList.stream()
                 .anyMatch(m -> m.getCpf().equals(user) && m.getPassword().equals(password));
+         */
+
+        // TODO - REMOVER ISSO AQUI OK >:3
+        boolean autenticado = true;
 
         if (autenticado) {
             new Alert(Alert.AlertType.INFORMATION, "Usuário e senha corretos").showAndWait();
-            App.setRoot("controller/Master.fxml");
+            App.setRoot("controller/Menu.fxml");
         } else {
             new Alert(Alert.AlertType.ERROR, "Usuário ou senha inválidos").show();
         }

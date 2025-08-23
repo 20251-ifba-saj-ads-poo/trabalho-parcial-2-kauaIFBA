@@ -15,7 +15,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
 
-public class MasterController {
+public class MenuController {
 
     @FXML
     private BorderPane masterPane;
@@ -27,7 +27,9 @@ public class MasterController {
     private Label userEmail;
 
     @FXML
-    private Circle userPicture;
+    void start(){
+        
+    }
 
     @FXML
     void logOff(MouseEvent event) {
