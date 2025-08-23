@@ -99,7 +99,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button alignment="BOTTOM_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="35.0" styleClass="btn-menu" stylesheets="@assets/style.css" text="Meus Encontros" textFill="WHITE">
+            <Button alignment="BOTTOM_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#showUserMeetings" prefHeight="35.0" styleClass="btn-menu" stylesheets="@assets/style.css" text="Meus Encontros" textFill="WHITE">
                <padding>
                   <Insets bottom="5.0" left="10.0" />
                </padding>

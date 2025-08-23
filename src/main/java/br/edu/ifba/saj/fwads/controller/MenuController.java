@@ -73,6 +73,12 @@ public class MenuController {
         showFXMLFile("RegisterBook.fxml");
     }
 
+    @FXML
+    void showUserMeetings(ActionEvent event) {
+        limparBotoes(event.getSource());
+        showFXMLFile("UserMeetings.fxml");
+    }
+
     private void showFXMLFile(String resourceName) {
         try {            
             Pane fxmlCarregado = FXMLLoader.load(getClass().getResource(resourceName));
