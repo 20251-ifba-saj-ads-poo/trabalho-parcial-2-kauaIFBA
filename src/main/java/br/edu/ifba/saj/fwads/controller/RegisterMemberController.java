@@ -22,12 +22,17 @@ public class RegisterMemberController {
     @FXML
     private PasswordField txPassword;
 
+    // todo cpf precisa ser único
     @FXML
     private void saveNewMember(ActionEvent event) {
-        Member newMember = new Member(txName.getText(),txCpf.getText(), txPassword.getText());
-        new Alert(Alert.AlertType.INFORMATION,
-                "Cadastrando Membro:"+newMember.getName()).showAndWait();
-        Dados.membersList.add(newMember);
+        if(txName.getText().isEmpty() || txCpf.getText().isEmpty() || txPassword.getText().isEmpty()){
+            new Alert(Alert.AlertType.ERROR, "Para registrar, preencha todos os campos").show();
+        } else {
+            Member newMember = new Member(txName.getText(),txCpf.getText(), txPassword.getText());
+            new Alert(Alert.AlertType.INFORMATION,
+                    "Cadastrando Membro:"+newMember.getName()).showAndWait();
+            Dados.membersList.add(newMember);
+        }
         clearScreen();
     }
 

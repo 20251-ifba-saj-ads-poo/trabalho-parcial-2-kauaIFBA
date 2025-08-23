@@ -10,7 +10,17 @@ public class Dados {
     public static ObservableList<Book> booksList = FXCollections.observableArrayList();
     public static ObservableList<Member> membersList = FXCollections.observableArrayList();
     public static ObservableList<Meeting> meetingsList = FXCollections.observableArrayList();
-    
+
+    private static Member currentUser;
+
+    public static void setCurrentUser(Member user) {
+        currentUser = user;
+    }
+
+    public static Member getCurrentUser() {
+        return currentUser;
+    }
+
     static{
         //listaAutores.add(new Autor("Jose","jose@seila.com","123.456.789.-11"));
     }

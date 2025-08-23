@@ -14,11 +14,11 @@
       <Label fx:id="lbISBN" layoutX="14.0" layoutY="102.0" text="Gênero" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" />
       <TextField fx:id="txGenre" layoutX="14.0" layoutY="119.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" />
       <Button defaultButton="true" layoutX="159.0" layoutY="223.0" mnemonicParsing="false" onAction="#saveBook" text="Salvar" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="83.0" />
-      <Button cancelButton="true" layoutX="224.0" layoutY="220.0" mnemonicParsing="false" onAction="#limparTela" text="Cancelar" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+      <Button cancelButton="true" layoutX="224.0" layoutY="220.0" mnemonicParsing="false" onAction="#clearScreen" text="Cancelar" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
       <Label fx:id="lbISBN1" layoutX="14.0" layoutY="144.0" text="Editora" />
       <TextField fx:id="txPublisher" layoutX="14.0" layoutY="161.0" prefHeight="25.0" prefWidth="262.0" />
       <Label fx:id="lbISBN11" layoutX="14.0" layoutY="183.0" text="Ano de Publicação" />
-      <TextField fx:id="txISBN11" layoutX="14.0" layoutY="200.0" prefHeight="25.0" prefWidth="262.0" />
+      <TextField fx:id="txPublicationYear" layoutX="14.0" layoutY="200.0" prefHeight="25.0" prefWidth="262.0" />
       <Label fx:id="lbISBN111" layoutX="14.0" layoutY="225.0" text="Sinopse" />
       <TextField fx:id="txSynopsis" layoutX="14.0" layoutY="242.0" prefHeight="119.0" prefWidth="262.0" />
    </children>

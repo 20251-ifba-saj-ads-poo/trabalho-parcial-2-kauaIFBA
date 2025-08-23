@@ -1,20 +1,21 @@
 package br.edu.ifba.saj.fwads.model;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
 public class Meeting extends AbstractModel<UUID>{
-    private LocalDateTime dateAndTime;
+    private LocalDate date;
     private Book book;
     private List<Member> subscribedMembers;
     private List<Member> attendedMembers;
     private Member host;
     private String minutes;
 
-    Meeting(LocalDateTime dateAndTime, Book book, Member host) {
-        this.dateAndTime = dateAndTime;
+    Meeting(LocalDate date, Book book, Member host) {
+        this.date = date;
         this.book = book;
         this.host = host;
 
@@ -25,7 +26,7 @@ public class Meeting extends AbstractModel<UUID>{
     }
 
     // Getters
-    public LocalDateTime getDateAndTime() { return dateAndTime; }
+    public LocalDate getDateAndTime() { return date; }
     public Book getBook() { return book; }
     public List<Member> getSubscribedMembers() { return subscribedMembers; }
     public List<Member> getAttendedMembers() { return attendedMembers; }
@@ -33,7 +34,7 @@ public class Meeting extends AbstractModel<UUID>{
     public String getMinutes() { return minutes; }
 
     // Setters
-    public void setDateAndTime(LocalDateTime dateAndTime) { this.dateAndTime = dateAndTime; }
+    public void setDateAndTime(LocalDate date) { this.date = date; }
     public void setBook(Book book) { this.book = book; }
     public void setSubscribedMembers(List<Member> subscribedMembers) { this.subscribedMembers = subscribedMembers; }
     public void setAttendedMembers(List<Member> attendedMembers) { this.attendedMembers = attendedMembers; }
@@ -43,7 +44,7 @@ public class Meeting extends AbstractModel<UUID>{
     @Override
     public String toString() {
         return "Meeting{" +
-                "dateAndTime=" + dateAndTime +
+                "date=" + date +
                 ", book=" + book +
                 ", subscribedMembers=" + subscribedMembers +
                 ", attendedMembers=" + attendedMembers +

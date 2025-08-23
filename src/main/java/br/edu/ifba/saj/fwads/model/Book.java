@@ -8,9 +8,9 @@ public class Book extends AbstractModel<UUID> {
     private String genre;
     private String synopsis;
     private String publisher;
-    private String publicationYear;
+    private int publicationYear;
 
-    public Book(String title, String author, String genre, String synopsis, String publisher, String publicationYear){
+    public Book(String title, String author, String genre, String synopsis, String publisher, int publicationYear){
         this.title = title;
         this.author = author;
         this.genre = genre;
@@ -26,7 +26,7 @@ public class Book extends AbstractModel<UUID> {
     public String getGenre() { return genre; }
     public String getSynopsis() { return synopsis; }
     public String getPublisher() { return publisher; }
-    public String getPublicationYear() { return publicationYear; }
+    public int getPublicationYear() { return publicationYear; }
 
     // Setters
     public void setTitle(String title) { this.title = title; }
@@ -34,7 +34,7 @@ public class Book extends AbstractModel<UUID> {
     public void setGenre(String genre) { this.genre = genre; }
     public void setSynopsis(String synopsis) { this.synopsis = synopsis; }
     public void setPublisher(String publisher) { this.publisher = publisher; }
-    public void setPublicationYear(String publicationYear) { this.publicationYear = publicationYear; }
+    public void setPublicationYear(int publicationYear) { this.publicationYear = publicationYear; }
 
     @Override
     public String toString() {

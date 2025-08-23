@@ -5,39 +5,36 @@
 package br.edu.ifba.saj.fwads.controller;
 
 import br.edu.ifba.saj.fwads.Dados;
-import br.edu.ifba.saj.fwads.model.Member;
 import br.edu.ifba.saj.fwads.App;
+import br.edu.ifba.saj.fwads.model.Member;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
-import javafx.scene.layout.Pane;
 
 public class LoginController {
 
-    @FXML // fx:id="txPassword"
-    private PasswordField txPassword; // Value injected by FXMLLoader
+    @FXML
+    private PasswordField txPassword;
 
-    @FXML // fx:id="txCpf"
-    private TextField txCpf; // Value injected by FXMLLoader
+    @FXML
+    private TextField txCpf;
 
     @FXML
     void login(ActionEvent event) {
         String user = txCpf.getText();
         String password = txPassword.getText();
 
-        /*
-        boolean autenticado = Dados.membersList.stream()
-                .anyMatch(m -> m.getCpf().equals(user) && m.getPassword().equals(password));
-         */
+        Member currentUser = Dados.membersList.stream()
+                .filter(m -> m.getCpf().equals(user) && m.getPassword().equals(password))
+                .findFirst() // procura o usuário inserido em txCpf e txPassword na lista lá em dados
+                .orElse(null); // se não achar ele é nulo
 
-        // TODO - REMOVER ISSO AQUI OK >:3
-        boolean autenticado = true;
+        // se ele for nulo, significa que o usuário ou senha estão errados
+        if (currentUser != null) {
+            Dados.setCurrentUser(currentUser);
 
-        if (autenticado) {
             new Alert(Alert.AlertType.INFORMATION, "Usuário e senha corretos").showAndWait();
             App.setRoot("controller/Menu.fxml");
         } else {

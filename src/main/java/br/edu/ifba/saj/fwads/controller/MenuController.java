@@ -1,6 +1,8 @@
 package br.edu.ifba.saj.fwads.controller;
 
 import br.edu.ifba.saj.fwads.App;
+import br.edu.ifba.saj.fwads.Dados;
+import br.edu.ifba.saj.fwads.model.Member;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,6 +16,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
+import br.edu.ifba.saj.fwads.controller.LoginController;
 
 public class MenuController {
 
@@ -24,11 +27,15 @@ public class MenuController {
     private VBox menu;
 
     @FXML
-    private Label userEmail;
+    private Label username;
 
     @FXML
-    void start(){
-        
+    private void initialize() {
+        // quando a tela carregar, pega o usuário do "Dados"
+        Member currentUser = Dados.getCurrentUser();
+        if (currentUser != null) {
+            username.setText(currentUser.getName());
+        }
     }
 
     @FXML
@@ -70,13 +77,13 @@ public class MenuController {
     }
 
     @FXML
-    void showAutores(ActionEvent event) {
+    void createMeeting(ActionEvent event) {
         limparBotoes(event.getSource());
         showFXMLFile("RegisterMeeting.fxml");
     }
 
     @FXML
-    void showLivros(ActionEvent event) {
+    void createBook(ActionEvent event) {
         limparBotoes(event.getSource());
         showFXMLFile("RegisterBook.fxml");
     }
