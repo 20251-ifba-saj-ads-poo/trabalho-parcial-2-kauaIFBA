@@ -1,16 +1,9 @@
 package br.edu.ifba.saj.fwads.controller;
 
-import br.edu.ifba.saj.fwads.Dados;
-import br.edu.ifba.saj.fwads.model.Meeting;
-import br.edu.ifba.saj.fwads.model.Member;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
-import javafx.scene.input.MouseEvent;
 
-public class RegisterNewMeetingController {
+public class RegisterMeetingController {
     @FXML
     private DatePicker dpDateAndTime;
     // Talvez ao inves de escolher o livro, ele te joga pro formulário de cadastro de livro, ou deixa as duas opções

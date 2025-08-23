@@ -1,18 +1,13 @@
 package br.edu.ifba.saj.fwads.controller;
 
-import br.edu.ifba.saj.fwads.Dados;
-import br.edu.ifba.saj.fwads.model.Book;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextFormatter;
 import javafx.scene.control.TextFormatter.Change;
 import javafx.util.converter.IntegerStringConverter;
 import java.util.function.UnaryOperator;
 
-public class RegisterNewBookController {
+public class RegisterBookController {
     @FXML
     private TextField txTitle;
     @FXML
