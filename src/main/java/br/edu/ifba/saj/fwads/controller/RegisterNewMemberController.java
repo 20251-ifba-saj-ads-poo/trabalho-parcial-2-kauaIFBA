@@ -15,7 +15,7 @@ public class RegisterNewMemberController {
     private TextField txCpf;
     @FXML
     private PasswordField txPassword;
-
+/*
     @FXML
     private void saveNewMember() {
         Member newMember = new Member(txName.getText(),txCpf.getText(), txPassword.getText());
@@ -24,6 +24,8 @@ public class RegisterNewMemberController {
         Dados.listaMembers.add(newMember);
         clearScreen();
     }
+
+ */
 
     @FXML
     private void clearScreen() {

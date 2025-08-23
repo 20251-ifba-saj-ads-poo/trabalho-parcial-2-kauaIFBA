@@ -7,9 +7,9 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class Dados {
-    public static ObservableList<Book> listaBooks = FXCollections.observableArrayList();
-    public static ObservableList<Member> listaMembers = FXCollections.observableArrayList();
-    public static ObservableList<Meeting> listaMeetings = FXCollections.observableArrayList();
+    public static ObservableList<Book> booksList = FXCollections.observableArrayList();
+    public static ObservableList<Member> membersList = FXCollections.observableArrayList();
+    public static ObservableList<Meeting> meetingsList = FXCollections.observableArrayList();
     
     static{
         //listaAutores.add(new Autor("Jose","jose@seila.com","123.456.789.-11"));

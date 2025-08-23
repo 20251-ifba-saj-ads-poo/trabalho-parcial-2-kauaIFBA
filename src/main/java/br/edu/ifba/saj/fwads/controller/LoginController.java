@@ -4,36 +4,44 @@
 
 package br.edu.ifba.saj.fwads.controller;
 
+import br.edu.ifba.saj.fwads.Dados;
+import br.edu.ifba.saj.fwads.model.Member;
 import br.edu.ifba.saj.fwads.App;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.layout.Pane;
 
 public class LoginController {
 
-    @FXML // fx:id="txSenha"
-    private PasswordField txSenha; // Value injected by FXMLLoader
+    @FXML // fx:id="txPassword"
+    private PasswordField txPassword; // Value injected by FXMLLoader
 
-    @FXML // fx:id="txUsuario"
-    private TextField txUsuario; // Value injected by FXMLLoader
+    @FXML // fx:id="txCpf"
+    private TextField txCpf; // Value injected by FXMLLoader
 
     @FXML
-    void entrar(ActionEvent event) {
-        if(txUsuario.getText().equals("admin") && txSenha.getText().equals("admin")){
-            new Alert(AlertType.INFORMATION, "Usuário e senha corretos").showAndWait();
+    void login(ActionEvent event) {
+        String user = txCpf.getText();
+        String password = txPassword.getText();
+
+        boolean autenticado = Dados.membersList.stream()
+                .anyMatch(m -> m.getCpf().equals(user) && m.getPassword().equals(password));
+
+        if (autenticado) {
+            new Alert(Alert.AlertType.INFORMATION, "Usuário e senha corretos").showAndWait();
             App.setRoot("controller/Master.fxml");
-        }else{
-            new Alert(AlertType.ERROR, "Usuário ou senha inválidos").show();
+        } else {
+            new Alert(Alert.AlertType.ERROR, "Usuário ou senha inválidos").show();
         }
     }
 
     @FXML
-    void limparCampos(ActionEvent event) {
-        txUsuario.setText("");
-        txSenha.setText("");
+    void newAccount(ActionEvent event) {
+        App.setRoot("controller/RegisterMember.fxml");
     }
-
 }

@@ -40,6 +40,7 @@ public class RegisterNewBookController {
                 new TextFormatter<Integer>(new IntegerStringConverter(), 0, integerFilter));
     }
 
+    /*
     @FXML
     void saveBook(ActionEvent event) {
         // Book(String title, String author, String genre, String synopsis, String publisher, int publicationYear)
@@ -54,6 +55,7 @@ public class RegisterNewBookController {
         Dados.listaBooks.add(newBook);
         limparTela();
     }
+    */
 
     @FXML
     private void limparTela() {
