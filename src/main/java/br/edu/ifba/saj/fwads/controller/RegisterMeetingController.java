@@ -47,6 +47,22 @@ public class RegisterMeetingController {
     private void saveMeeting(ActionEvent event) {
         Member host = Dados.getCurrentUser();
 
+        if (slBook.getValue() == null) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setHeaderText(null);
+            alert.setContentText("Nenhum livro selecionado.");
+            alert.showAndWait();
+            return;
+        }
+
+        if (dpDate.getValue() == null) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setHeaderText(null);
+            alert.setContentText("Nenhuma data selecionada.");
+            alert.showAndWait();
+            return;
+        }
+
         Meeting novoMeeting = new Meeting(dpDate.getValue(),
                 slBook.getSelectionModel().getSelectedItem(),
                 host);

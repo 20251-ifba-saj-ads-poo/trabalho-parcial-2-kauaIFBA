@@ -18,7 +18,7 @@
          <children>
             <ImageView fitHeight="100.0" fitWidth="292.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@assets/LogoH.png" />
+                  <Image url="@assets/fish.gif" />
                </image>
             </ImageView>
             <Label fx:id="username" layoutX="1197.0" layoutY="41.0" onMouseClicked="#logOff" text="email@email" textFill="WHITE" AnchorPane.rightAnchor="14.0">
@@ -49,7 +49,7 @@
                <graphic>
                   <ImageView fitHeight="150.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@assets/eevee.png" />
+                        <Image url="@assets/fish.gif" />
                      </image>
                   </ImageView>
                </graphic>
@@ -64,7 +64,7 @@
                <graphic>
                   <ImageView fitHeight="35.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@assets/study.png" />
+                        <Image url="@assets/fish.gif" />
                      </image>
                   </ImageView>
                </graphic>
@@ -79,7 +79,7 @@
                <graphic>
                   <ImageView fitHeight="150.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@assets/reading-book.png" />
+                        <Image url="@assets/fish.gif" />
                      </image>
                   </ImageView>
                </graphic>
@@ -94,7 +94,7 @@
                <graphic>
                   <ImageView fitHeight="35.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@assets/study.png" />
+                        <Image url="@assets/fish.gif" />
                      </image>
                   </ImageView>
                </graphic>
@@ -109,7 +109,7 @@
                <graphic>
                   <ImageView fitHeight="150.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@assets/reading-book.png" />
+                        <Image url="@assets/fish.gif" />
                      </image>
                   </ImageView>
                </graphic>
@@ -124,7 +124,7 @@
                <graphic>
                   <ImageView fitHeight="150.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@assets/reading-book.png" />
+                        <Image url="@assets/fish.gif" />
                      </image>
                   </ImageView>
                </graphic>
