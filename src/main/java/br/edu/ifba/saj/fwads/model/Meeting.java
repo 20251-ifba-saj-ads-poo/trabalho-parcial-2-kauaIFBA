@@ -41,6 +41,10 @@ public class Meeting extends AbstractModel<UUID>{
     public void setHost(Member host) { this.host = host; }
     public void setMinutes(String minutes) {this.minutes = minutes; }
 
+    public void addSubscribedMember(Member subscribedMember) {
+        this.subscribedMembers.add(subscribedMember);
+    }
+
     @Override
     public String toString() {
         return "Meeting{" +

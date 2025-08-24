@@ -40,9 +40,10 @@ public class OpenMeetingsController {
     @FXML
     public void subscribe(ActionEvent actionEvent) {
         Member currentUser = Dados.getCurrentUser();
-
-        // todo fazer isso aqui
         currentUser.addAttendedMeeting(slOpenMeetings.getValue());
+
+        Meeting subscribedMeeting = slOpenMeetings.getValue();
+        subscribedMeeting.addSubscribedMember(currentUser);
     }
 
     private void loadMeetingsList() {

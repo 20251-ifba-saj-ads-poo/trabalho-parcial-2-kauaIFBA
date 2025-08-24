@@ -4,22 +4,25 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/24" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifba.saj.fwads.controller.UserMeetingsController">
+<AnchorPane prefHeight="400.0" prefWidth="696.0" xmlns="http://javafx.com/javafx/24" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifba.saj.fwads.controller.UserMeetingsController">
    <children>
-      <ChoiceBox fx:id="slUserMeetings" layoutX="14.0" layoutY="14.0" prefWidth="150.0" />
-      <Button layoutX="173.0" layoutY="14.0" mnemonicParsing="false" onAction="#editMeeting" text="Editar encontro" />
-      <Button layoutX="281.0" layoutY="14.0" mnemonicParsing="false" onAction="#cancelMeeting" text="Desmarcar encontro" />
-      <AnchorPane layoutX="173.0" layoutY="48.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="152.0" prefWidth="320.0">
+      <ChoiceBox fx:id="slUserMeetings" layoutX="14.0" layoutY="31.0" prefWidth="150.0" />
+      <Button fx:id="btEdit" layoutX="174.0" layoutY="200.0" mnemonicParsing="false" onAction="#editMeeting" text="Editar encontro" />
+      <AnchorPane layoutX="164.0" layoutY="234.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="152.0" prefWidth="320.0">
          <children>
-            <Label fx:id="lbDate" layoutX="14.0" layoutY="14.0" text="Data" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+            <Label fx:id="lbDate" layoutX="14.0" layoutY="14.0" text="Nova data" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" />
             <Button fx:id="btCancel" cancelButton="true" layoutX="215.0" layoutY="159.0" mnemonicParsing="false" onAction="#clearScreen" text="Cancelar" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
             <Button fx:id="btSave" defaultButton="true" layoutX="48.0" layoutY="185.0" mnemonicParsing="false" onAction="#saveMeeting" text="Salvar" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="80.0" />
             <ChoiceBox fx:id="slBook" layoutX="14.0" layoutY="74.0" prefHeight="25.0" prefWidth="292.0" />
-            <Label fx:id="lbBook" layoutX="14.0" layoutY="57.0" text="Livro" />
+            <Label fx:id="lbBook" layoutX="14.0" layoutY="57.0" text="Novo livro" />
             <DatePicker fx:id="dpDate" layoutX="14.0" layoutY="31.0" />
          </children>
       </AnchorPane>
+      <Button fx:id="btMinutes" layoutX="287.0" layoutY="200.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="122.0" text="Adicionar minuta" />
+      <ListView fx:id="lvMembers" layoutX="174.0" layoutY="31.0" prefHeight="165.0" prefWidth="236.0" />
+      <Label fx:id="lbSubs" layoutX="174.0" layoutY="14.0" text="Inscritos neste encontro" />
    </children>
 </AnchorPane>

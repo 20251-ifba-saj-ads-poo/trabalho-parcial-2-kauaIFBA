@@ -8,12 +8,16 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.util.StringConverter;
 
+import java.net.URL;
+import java.time.LocalDate;
 import java.util.List;
+import java.util.ResourceBundle;
 
-public class UserMeetingsController {
+public class UserMeetingsController implements Initializable {
     @FXML
     private ChoiceBox<Meeting> slUserMeetings;
 
@@ -29,18 +33,32 @@ public class UserMeetingsController {
     private Label lbDate;
     @FXML
     private Label lbBook;
+    @FXML
+    private Button btEdit;
+
+    @FXML
+    private Label lbSubs;
+    @FXML
+    private ListView<Member> lvMembers;
+    @FXML
+    private Button btMinutes;
 
     Member currentUser = Dados.getCurrentUser();
     ObservableList<Meeting> observable = FXCollections.observableArrayList(currentUser.getMyMeetings());
 
-    @FXML
-    private void initialize() {
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
         dpDate.setVisible(false);
         slBook.setVisible(false);
         btSave.setVisible(false);
         btCancel.setVisible(false);
-        lbBook.setVisible(false);
         lbDate.setVisible(false);
+        lbSubs.setVisible(false);
+        lbBook.setVisible(false);
+        lvMembers.setVisible(false);
+        btMinutes.setVisible(false);
+        btEdit.setVisible(false);
 
         slUserMeetings.setConverter(new StringConverter<Meeting>() {
             @Override
@@ -84,23 +102,73 @@ public class UserMeetingsController {
         });
 
         loadBooksList();
+
+        // problea com certeza é aqui
+        lvMembers.setCellFactory(param -> new ListCell<Member>() {
+            @Override
+            protected void updateItem(Member member, boolean empty) {
+                super.updateItem(member, empty);
+                if (empty || member == null) {
+                    setText(null);
+                } else {
+                    setText(member.getName());
+                }
+            }
+        });
+
+        slUserMeetings.valueProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null) {
+                slBook.setValue(newValue.getBook());
+                dpDate.setValue(newValue.getDateAndTime());
+
+                lbDate.setVisible(true);
+                lbSubs.setVisible(true);
+                lbBook.setVisible(true);
+                lvMembers.setVisible(true);
+                btMinutes.setVisible(true);
+                btEdit.setVisible(true);
+                dpDate.setVisible(true);
+                slBook.setVisible(true);
+                btSave.setVisible(true);
+                btCancel.setVisible(true);
+
+                Meeting selectedMeeting = slUserMeetings.getValue();
+                ObservableList<Member> subscribedMembers = FXCollections.observableArrayList(selectedMeeting.getSubscribedMembers());
+                lvMembers.setItems(subscribedMembers);
+
+            } else {
+                lbDate.setVisible(false);
+                lbSubs.setVisible(false);
+                lbBook.setVisible(false);
+                lvMembers.setVisible(false);
+                btMinutes.setVisible(false);
+                btEdit.setVisible(false);
+                dpDate.setVisible(false);
+                slBook.setVisible(false);
+                btSave.setVisible(false);
+                btCancel.setVisible(false);
+                slBook.setValue(null);
+                dpDate.setValue(null);
+                lvMembers.setItems(null);
+            }
+        });
     }
 
     @FXML
     void editMeeting(ActionEvent actionEvent) {
-        // isso aqui está escrito da forma mais burra possível, desculpe
-        if(slUserMeetings.getValue()!=null) {
+        if (slUserMeetings.getValue()!=null) {
+            slBook.setValue(slUserMeetings.getValue().getBook());
+            dpDate.setValue(slUserMeetings.getValue().getDateAndTime());
             dpDate.setVisible(true);
             slBook.setVisible(true);
             btSave.setVisible(true);
             btCancel.setVisible(true);
-            lbBook.setVisible(true);
-            lbDate.setVisible(true);
+        } else {
+            dpDate.setVisible(false);
+            slBook.setVisible(false);
+            btSave.setVisible(false);
+            btCancel.setVisible(false);
         }
-    }
-
-    @FXML
-    void cancelMeeting(ActionEvent actionEvent) {
     }
 
     @FXML
@@ -137,7 +205,6 @@ public class UserMeetingsController {
     @FXML
     private void clearScreen() {
         dpDate.setValue(null);
-        //Todo REVER
         slBook.setSelectionModel(null);
     }
 
@@ -148,5 +215,4 @@ public class UserMeetingsController {
     private void loadBooksList() {
         slBook.setItems(Dados.booksList);
     }
-
 }
