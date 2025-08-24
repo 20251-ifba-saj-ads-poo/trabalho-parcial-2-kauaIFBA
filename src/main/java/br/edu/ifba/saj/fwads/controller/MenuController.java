@@ -15,8 +15,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import javafx.scene.shape.Circle;
-import br.edu.ifba.saj.fwads.controller.LoginController;
 
 public class MenuController {
 
@@ -74,6 +72,12 @@ public class MenuController {
     }
 
     @FXML
+    void showSubscribedMeetings(ActionEvent event) {
+        limparBotoes(event.getSource());
+        showFXMLFile("SubscribedMeetings.fxml");
+    }
+
+    @FXML
     void showUserMeetings(ActionEvent event) {
         limparBotoes(event.getSource());
         showFXMLFile("UserMeetings.fxml");
@@ -103,4 +107,5 @@ public class MenuController {
             btn.getStyleClass().add("btn-menu-selected");
         }
     }
+
 }

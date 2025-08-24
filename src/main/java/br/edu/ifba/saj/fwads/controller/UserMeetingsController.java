@@ -1,51 +1,50 @@
 package br.edu.ifba.saj.fwads.controller;
 
+import br.edu.ifba.saj.fwads.Dados;
 import br.edu.ifba.saj.fwads.model.Meeting;
 import br.edu.ifba.saj.fwads.model.Member;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.ListCell;
-import javafx.scene.control.ListView;
-import java.net.URL;
-import java.util.List;
-import java.util.ResourceBundle;
-import br.edu.ifba.saj.fwads.Dados;
-import javafx.scene.control.SelectionMode;
+import javafx.scene.control.ChoiceBox;
+import javafx.util.StringConverter;
 
-public class UserMeetingsController implements Initializable {
+import java.util.List;
+
+public class UserMeetingsController {
+    @FXML
+    private ChoiceBox<Meeting> slUserMeetings;
+
+    Member currentUser = Dados.getCurrentUser();
+    ObservableList<Meeting> observable = FXCollections.observableArrayList(currentUser.getMyMeetings());
 
     @FXML
-    private ListView<Meeting> lvUserMeetings;
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        lvUserMeetings.setCellFactory(param -> new ListCell<Meeting>() {
+    private void initialize() {
+        slUserMeetings.setConverter(new StringConverter<Meeting>() {
             @Override
-            protected void updateItem(Meeting meeting, boolean empty) {
-                super.updateItem(meeting, empty);
-                if (empty || meeting == null || meeting.getBook() == null) {
-                    setText(null);
-                } else {
-                    setText(meeting.getBook().getTitle() + " - " + meeting.getDateAndTime());
+            public String toString(Meeting obj) {
+                if (obj != null) {
+                    return "Encontro do livro: " + obj.getBook().toString() + "\nirá ocorrer em: " + obj.getDateAndTime().toString();
                 }
+                return "";
+            }
+
+            @Override
+            public Meeting fromString(String stringMeeting) {
+
+                return observable
+                        .stream()
+                        .filter(autor -> stringMeeting.equals(autor.toString()))
+                        .findAny()
+                        .orElse(null);
             }
         });
-        Member currentUser = Dados.getCurrentUser();
-        ObservableList<Meeting> userMeetings = FXCollections.observableArrayList(currentUser.getAttendedMeetings());
-        lvUserMeetings.setItems(userMeetings);
-    }
-}
-/*
-ANTIGO
-    @FXML
-    private ListView<Meeting> lvUserMeetings;
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        Member currentUser = Dados.getCurrentUser();
-        lvUserMeetings.setItems(FXCollections.observableArrayList(currentUser.getAttendedMeetings()));
+        loadMyMeetingsList();
     }
- */
+
+    private void loadMyMeetingsList() {
+        slUserMeetings.setItems(observable);
+    }
+
+}

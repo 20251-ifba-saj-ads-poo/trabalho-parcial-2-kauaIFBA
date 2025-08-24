@@ -53,6 +53,7 @@ public class RegisterMeetingController {
         new Alert(Alert.AlertType.INFORMATION,
                 "Criando novo Encontro").showAndWait();
         Dados.meetingsList.add(novoMeeting);
+        host.addUserMeeting(novoMeeting);
         clearScreen();
     }
 
