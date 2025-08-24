@@ -6,7 +6,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/24" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifba.saj.fwads.controller.OpenMeetingsController">
    <children>
-      <Button layoutX="15.0" layoutY="63.0" mnemonicParsing="false" onAction="#subscribe" text="Participar deste encontro" />
+      <Button layoutX="174.0" layoutY="28.0" mnemonicParsing="false" onAction="#subscribe" text="Participar deste encontro" />
       <ChoiceBox fx:id="slOpenMeetings" layoutX="14.0" layoutY="28.0" prefWidth="150.0" />
    </children>
 </AnchorPane>

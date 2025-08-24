@@ -19,7 +19,7 @@ public class OpenMeetingsController {
             @Override
             public String toString(Meeting obj) {
                 if (obj != null) {
-                    return obj.toString();
+                    return "Encontro do livro: " + obj.getBook().toString() + "\nirá ocorrer em: " + obj.getDateAndTime().toString();
                 }
                 return "";
             }
@@ -34,7 +34,7 @@ public class OpenMeetingsController {
             }
         });
 
-        loadMemberList();
+        loadMeetingsList();
     }
 
     @FXML
@@ -45,7 +45,7 @@ public class OpenMeetingsController {
         currentUser.addAttendedMeeting(slOpenMeetings.getValue());
     }
 
-    private void loadMemberList() {
+    private void loadMeetingsList() {
         slOpenMeetings.setItems(Dados.meetingsList);
     }
 }

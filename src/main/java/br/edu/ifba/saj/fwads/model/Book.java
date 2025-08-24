@@ -38,13 +38,11 @@ public class Book extends AbstractModel<UUID> {
 
     @Override
     public String toString() {
-        return "Book{" +
-                "title='" + title + '\'' +
-                ", author='" + author + '\'' +
-                ", genre='" + genre + '\'' +
-                ", synopsis='" + synopsis + '\'' +
-                ", publisher='" + publisher + '\'' +
-                ", publicationYear=" + publicationYear +
-                '}';
+        return title +
+                "\nescrito por: " + author +
+                "\n" + genre +
+                "\n" + publisher +
+                "\npublicado em:" + publicationYear +
+                "\n" + synopsis;
     }
 }
