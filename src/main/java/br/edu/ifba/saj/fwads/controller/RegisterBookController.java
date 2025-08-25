@@ -1,3 +1,9 @@
+/**
+ * Controller da tela de Cadastrar Livro (RegisterBook.fxml)
+ *
+ * Adiciona livros à lista de livros (declarada em Dados).
+ */
+
 package br.edu.ifba.saj.fwads.controller;
 
 import br.edu.ifba.saj.fwads.Dados;
@@ -60,64 +66,3 @@ public class RegisterBookController {
         txSynopsis.setText("");
     }
 }
-/*
-    @FXML
-    private TextField txTitulo;
-    @FXML
-    private TextField txSubTitulo;
-    @FXML
-    private TextField txISBN;
-    @FXML
-    private ChoiceBox<Autor> slAutor;
-
-    @FXML
-    void salvarLivro(ActionEvent event) {
-        Book novoLivro = new Book(txTitulo.getText(),
-                    txSubTitulo.getText(),
-                    txISBN.getText(),
-                    slAutor.getSelectionModel().getSelectedItem());
-        new Alert(AlertType.INFORMATION,
-        "Cadastrando Livro(Fake):"+novoLivro.toString()).showAndWait();
-        limparTela();
-
-
-    }
-
-    @FXML
-    private void initialize() {
-        slAutor.setConverter(new StringConverter<Autor>() {
-            @Override
-            public String toString(Autor obj) {
-                if (obj != null) {
-                    return obj.getNome() + ":" + obj.getEmail();
-                }
-                return "";
-            }
-
-            @Override
-            public Autor fromString(String stringAutor) {
-                return Biblioteca.listaAutores
-                    .stream()
-                    .filter(autor -> stringAutor.equals(autor.getNome() + ":" + autor.getEmail()))
-                    .findAny()
-                    .orElse(null);
-            }
-        });
-
-        carregarListaAutores();
-    }
-
-    @FXML
-    private void limparTela() {
-        txTitulo.setText("");
-        txSubTitulo.setText("");
-        txISBN.setText("");
-        //Todo REVER, rever oque dog?
-        slAutor.setSelectionModel(null);
-    }
-
-    private void carregarListaAutores() {
-        slAutor.setItems(Biblioteca.listaAutores);
-    }
-
- */

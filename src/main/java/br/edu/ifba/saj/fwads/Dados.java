@@ -11,6 +11,7 @@ public class Dados {
     public static ObservableList<Member> membersList = FXCollections.observableArrayList();
     public static ObservableList<Meeting> meetingsList = FXCollections.observableArrayList();
 
+    // Conceito de usuário atual, logado no sistema
     private static Member currentUser;
 
     public static void setCurrentUser(Member user) {

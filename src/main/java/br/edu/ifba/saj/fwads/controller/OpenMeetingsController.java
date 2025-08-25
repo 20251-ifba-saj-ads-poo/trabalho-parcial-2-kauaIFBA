@@ -1,3 +1,10 @@
+/**
+ * Controller da tela de Encontros em Aberto (OpenMeetings.fxml)
+ *
+ * Carrega lista de encontros.
+ * Permite que o atual usuário se inscreva no encontro escolhido (no choicebox).
+ */
+
 package br.edu.ifba.saj.fwads.controller;
 
 import br.edu.ifba.saj.fwads.model.Meeting;
@@ -40,31 +47,13 @@ public class OpenMeetingsController {
     @FXML
     public void subscribe(ActionEvent actionEvent) {
         Member currentUser = Dados.getCurrentUser();
-        currentUser.addAttendedMeeting(slOpenMeetings.getValue());
+        currentUser.addAttendedMeeting(slOpenMeetings.getValue()); // Adiciona o encontro no Membro como "Encontros em que está inscritos".
 
         Meeting subscribedMeeting = slOpenMeetings.getValue();
-        subscribedMeeting.addSubscribedMember(currentUser);
+        subscribedMeeting.addSubscribedMember(currentUser); // Adiciona o membro no encontro como "Membros inscritos".
     }
 
     private void loadMeetingsList() {
         slOpenMeetings.setItems(Dados.meetingsList);
     }
 }
-
-/*
-ANTIGO
-    @FXML
-    private ListView<Meeting> lvOpenMeetings;
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        lvOpenMeetings.setItems(Dados.meetingsList);
-        lvOpenMeetings.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-    }
-
-    @FXML
-    public void subscribe(ActionEvent actionEvent) {
-        Member currentUser = Dados.getCurrentUser();
-        currentUser.setSubscribedMeetings(lvOpenMeetings.getSelectionModel().getSelectedItems());
-    }
- */

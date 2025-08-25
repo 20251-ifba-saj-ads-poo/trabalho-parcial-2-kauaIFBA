@@ -1,3 +1,9 @@
+/**
+ * Controller da tela de Cadastrar Membro (Criar conta) (RegisterMember.fxml)
+ *
+ * Adiciona um novo membro à lista de membros (declarada em Dados).
+ */
+
 package br.edu.ifba.saj.fwads.controller;
 
 import br.edu.ifba.saj.fwads.App;

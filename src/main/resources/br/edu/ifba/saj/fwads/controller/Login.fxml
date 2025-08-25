@@ -10,7 +10,7 @@
 
 <AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/24" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifba.saj.fwads.controller.LoginController">
    <children>
-      <Label layoutX="502.0" layoutY="251.0" text="Entrar">
+      <Label layoutX="593.0" layoutY="222.0" text="Entrar">
          <font>
             <Font size="24.0" />
          </font>
@@ -18,16 +18,18 @@
             <Insets />
          </opaqueInsets>
       </Label>
-      <TextField fx:id="txCpf" layoutX="502.0" layoutY="295.0" prefHeight="35.0" prefWidth="245.0" promptText="123.456.789-10" />
+      <TextField fx:id="txCpf" layoutX="502.0" layoutY="287.0" prefHeight="35.0" prefWidth="245.0" promptText="123.456.789-10" />
       <PasswordField fx:id="txPassword" layoutX="502.0" layoutY="339.0" prefHeight="35.0" prefWidth="245.0" promptText="Insira sua senha" />
+      <Button defaultButton="true" layoutX="502.0" layoutY="424.0" mnemonicParsing="false" onAction="#newAccount" prefHeight="35.0" prefWidth="245.0" text="Criar nova conta." textFill="WHITE">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Button>
+      <Label layoutX="502.0" layoutY="270.0" text="Insira seu CPF" />
+      <Label layoutX="502.0" layoutY="322.0" text="Insira sua senha" />
       <Button defaultButton="true" layoutX="502.0" layoutY="383.0" mnemonicParsing="false" onAction="#login" prefHeight="35.0" prefWidth="245.0" styleClass="btn-login" stylesheets="@assets/style.css" text="Entrar" textFill="WHITE">
          <font>
             <Font size="16.0" />
-         </font>
-      </Button>
-      <Button defaultButton="true" layoutX="502.0" layoutY="424.0" mnemonicParsing="false" onAction="#newAccount" prefHeight="35.0" prefWidth="245.0" text="Criar nova conta.">
-         <font>
-            <Font size="10.0" />
          </font>
       </Button>
    </children>

@@ -8,11 +8,12 @@
 
 <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="152.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/24" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifba.saj.fwads.controller.RegisterMeetingController">
    <children>
-      <Label layoutX="14.0" layoutY="14.0" text="Data" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" />
-      <Button cancelButton="true" layoutX="215.0" layoutY="159.0" mnemonicParsing="false" onAction="#clearScreen" text="Cancelar" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
-      <Button defaultButton="true" layoutX="48.0" layoutY="185.0" mnemonicParsing="false" onAction="#saveMeeting" text="Salvar" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="80.0" />
-      <ChoiceBox fx:id="slBook" layoutX="14.0" layoutY="74.0" prefHeight="25.0" prefWidth="292.0" />
-      <Label layoutX="14.0" layoutY="57.0" text="Livro" />
-      <DatePicker fx:id="dpDate" layoutX="14.0" layoutY="31.0" />
+      <Label layoutX="14.0" layoutY="28.0" text="Data" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+      <Button cancelButton="true" layoutX="244.0" layoutY="127.0" mnemonicParsing="false" onAction="#clearScreen" text="Cancelar" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="14.0" />
+      <Button defaultButton="true" layoutX="192.0" layoutY="127.0" mnemonicParsing="false" onAction="#saveMeeting" text="Salvar" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="80.0" />
+      <ChoiceBox fx:id="slBook" layoutX="14.0" layoutY="88.0" prefHeight="25.0" prefWidth="292.0" />
+      <Label layoutX="14.0" layoutY="71.0" text="Livro" />
+      <DatePicker fx:id="dpDate" layoutX="14.0" layoutY="45.0" />
+      <Label layoutX="13.0" layoutY="6.0" text="Agendar encontro" />
    </children>
 </AnchorPane>

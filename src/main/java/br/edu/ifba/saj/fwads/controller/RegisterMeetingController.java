@@ -1,3 +1,10 @@
+/**
+ * Controller da tela de Agendar Encontro (RegisterMeeting.fxml)
+ *
+ * Carrega lista de livros do sistema.
+ * Adiciona um novo encontro à lista de encontros (declarada em Dados).
+ */
+
 package br.edu.ifba.saj.fwads.controller;
 
 import br.edu.ifba.saj.fwads.Dados;
@@ -25,7 +32,7 @@ public class RegisterMeetingController {
             @Override
             public String toString(Book obj) {
                 if (obj != null) {
-                    return obj.getTitle() + ":" + obj.getPublisher();
+                    return "Livro: " + obj.getTitle() + ", Editora:" + obj.getPublisher();
                 }
                 return "";
             }

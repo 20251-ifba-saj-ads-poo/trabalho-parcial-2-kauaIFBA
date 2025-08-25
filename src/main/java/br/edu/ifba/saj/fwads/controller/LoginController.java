@@ -1,5 +1,9 @@
 /**
- * Sample Skeleton for 'Login.fxml' Controller Class
+ * Controller da tela de Login (Login.fxml)
+ *
+ * Valida se as credenciais inseridas (CPF e senha) batem com algum membro cadastrado.
+ * Redireciona à tela de Menu.
+ * Redireciona à tela de Cadastro.
  */
 
 package br.edu.ifba.saj.fwads.controller;
@@ -28,16 +32,16 @@ public class LoginController {
 
         Member currentUser = Dados.membersList.stream()
                 .filter(m -> m.getCpf().equals(user) && m.getPassword().equals(password))
-                .findFirst() // procura o usuário inserido em txCpf e txPassword na lista lá em dados
-                .orElse(null); // se não achar ele é nulo
+                .findFirst() // currentUser será preenchido com as credenciais inseridas caso encontre algum membro existente.
+                .orElse(null); // caso não, ele será null.
 
-        // se ele for nulo, significa que o usuário ou senha estão errados
+        // se NÃO for for nulo, significa que o usuário e senha estão corretos.
         if (currentUser != null) {
             Dados.setCurrentUser(currentUser);
 
             new Alert(Alert.AlertType.INFORMATION, "Usuário e senha corretos").showAndWait();
             App.setRoot("controller/Menu.fxml");
-        } else {
+        } else { // se for nulo, já sabe
             new Alert(Alert.AlertType.ERROR, "Usuário ou senha inválidos").show();
         }
     }

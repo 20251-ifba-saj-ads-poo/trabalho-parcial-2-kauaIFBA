@@ -1,3 +1,9 @@
+/**
+ * Controller da tela de Menu (Menu.fxml)
+ *
+ * Menu, redireciona para outras telas.
+ */
+
 package br.edu.ifba.saj.fwads.controller;
 
 import br.edu.ifba.saj.fwads.App;
@@ -29,8 +35,7 @@ public class MenuController {
 
     @FXML
     private void initialize() {
-        // quando a tela carregar, pega o usuário do "Dados"
-        Member currentUser = Dados.getCurrentUser();
+        Member currentUser = Dados.getCurrentUser(); // quando a tela carregar, pega o usuário do "Dados"
         if (currentUser != null) {
             username.setText(currentUser.getName());
         }

@@ -1,3 +1,9 @@
+/**
+ * Controller da tela de Encontros em que o atual usuário é host (UserMeetings.fxml)
+ *
+ * Atualmente esta tela é problemática, ela serve para visualizar dados do encontro, editar e adicionar minuta e participantes.
+ */
+
 package br.edu.ifba.saj.fwads.controller;
 
 import br.edu.ifba.saj.fwads.Dados;
@@ -48,7 +54,7 @@ public class UserMeetingsController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        // Só aparecem caso tenha alguma opção selecionada no ChoiceBox de encontros
         dpDate.setVisible(false);
         slBook.setVisible(false);
         btSave.setVisible(false);
@@ -103,7 +109,7 @@ public class UserMeetingsController implements Initializable {
 
         loadBooksList();
 
-        // problea com certeza é aqui
+        // preenche ListView dos membros inscritos.
         lvMembers.setCellFactory(param -> new ListCell<Member>() {
             @Override
             protected void updateItem(Member member, boolean empty) {
@@ -116,6 +122,7 @@ public class UserMeetingsController implements Initializable {
             }
         });
 
+        // Só aparecem caso tenha alguma opção selecionada no ChoiceBox de encontros
         slUserMeetings.valueProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
                 slBook.setValue(newValue.getBook());
@@ -156,6 +163,7 @@ public class UserMeetingsController implements Initializable {
 
     @FXML
     void editMeeting(ActionEvent actionEvent) {
+        // Esconde as opções de edição, até que seja selecionado botão de edição e tenha um encontro selecionado.
         if (slUserMeetings.getValue()!=null) {
             slBook.setValue(slUserMeetings.getValue().getBook());
             dpDate.setValue(slUserMeetings.getValue().getDateAndTime());
@@ -173,6 +181,7 @@ public class UserMeetingsController implements Initializable {
 
     @FXML
     private void saveMeeting(ActionEvent event) {
+        // Atualiza o encontro
         Meeting selectedMeeting = slUserMeetings.getValue();
 
         if (slBook.getValue() == null) {

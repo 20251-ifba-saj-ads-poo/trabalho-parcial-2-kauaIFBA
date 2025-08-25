@@ -1,3 +1,9 @@
+/**
+ * Controller da tela de Encontros no qual o atual usuário está Inscrito (SubscribedMeetings.fxml)
+ *
+ * Carrega lista de encontros inscritos (currentUser.subscribedMeetings).
+ */
+
 package br.edu.ifba.saj.fwads.controller;
 
 import br.edu.ifba.saj.fwads.model.Meeting;
@@ -21,28 +27,17 @@ public class SubscribedMeetingsController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         lvSubMeetings.setCellFactory(param -> new ListCell<Meeting>() {
             @Override
-            protected void updateItem(Meeting meeting, boolean empty) {
+            protected void updateItem(Meeting meeting, boolean empty) { // Preenche o ListView com dados.
                 super.updateItem(meeting, empty);
                 if (empty || meeting == null || meeting.getBook() == null) {
                     setText(null);
                 } else {
-                    setText(meeting.getBook().getTitle() + " - " + meeting.getDateAndTime());
+                    setText("Livro: " + meeting.getBook().getTitle() + " Irá ocorrer em: " + meeting.getDateAndTime());
                 }
             }
         });
         Member currentUser = Dados.getCurrentUser();
-        ObservableList<Meeting> userMeetings = FXCollections.observableArrayList(currentUser.getAttendedMeetings());
+        ObservableList<Meeting> userMeetings = FXCollections.observableArrayList(currentUser.getAttendedMeetings()); // Preciso de alguma forma para evitar este tipo de conversão.
         lvSubMeetings.setItems(userMeetings);
     }
 }
-/*
-ANTIGO
-    @FXML
-    private ListView<Meeting> lvSubMeetings;
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        Member currentUser = Dados.getCurrentUser();
-        lvSubMeetings.setItems(FXCollections.observableArrayList(currentUser.getAttendedMeetings()));
-    }
- */
